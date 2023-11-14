@@ -1,0 +1,268 @@
+---Amasz XML---
+
+<AmasPvtLtd>
+	<Employee Category ="Sales">
+		<EmployeeId>01</EmployeeId>
+		<Name>Walter</Name>
+		<Age>35</Age>
+		<City State ="California">Los Angeles</City>
+		<Basic_Salary>$5450</Basic_Salary>
+	</Employee>
+
+	<Employee Category ="Research and Development">
+		<EmployeeId>02</EmployeeId>
+		<Name>Wick</Name>
+		<Age>32</Age>
+		<City State ="Texas">Austin</City>
+		<Basic_Salary>$9825</Basic_Salary>
+	</Employee>
+
+	<Employee Category ="Production and supply">
+		<EmployeeId>03</EmployeeId>
+		<Name>Jhon</Name>
+		<Age>33</Age>
+		<City State ="Florida">Miami</City>
+		<Basic_Salary>$7800</Basic_Salary>
+	</Employee>
+
+	<Employee Category ="Financial">
+		<EmployeeId>04</EmployeeId>
+		<Name>Liam</Name>
+		<Age>30</Age>
+		<City State ="Alaska">Nome</City>
+		<Basic_Salary>$10825</Basic_Salary>
+	</Employee>
+
+	<Employee Category ="Human Resource">
+		<EmployeeId>05</EmployeeId>
+		<Name>William</Name>
+		<Age>38</Age>
+		<City State ="Georgia">Columbus</City>
+		<Basic_Salary>$10100</Basic_Salary>
+	</Employee>
+</AmasPvtLtd>
+
+--- AMAS HTML ---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <table border="1">
+
+        <tr>
+            <th>Employee Id</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>City/State</th>
+            <th>Basic Salary</th>
+        </tr>
+
+        <tr>
+            <td id="data1"></td>
+            <td id="data2"></td>
+            <td id="data3"></td>
+            <td id="data4"></td>
+            <td id="data5"></td>
+        </tr>
+        <tr>
+            <td id="data6"></td>
+            <td id="data7"></td>
+            <td id="data8"></td>
+            <td id="data9"></td>
+            <td id="data10"></td>
+        </tr>
+        <tr>
+            <td id="data11"></td>
+            <td id="data12"></td>
+            <td id="data13"></td>
+            <td id="data14"></td>
+            <td id="data15"></td>
+        </tr>
+
+        <tr>
+            <td id="data16"></td>
+            <td id="data17"></td>
+            <td id="data18"></td>
+            <td id="data19"></td>
+            <td id="data20"></td>
+        </tr>
+
+        <tr>
+            <td id="data21"></td>
+            <td id="data22"></td>
+            <td id="data23"></td>
+            <td id="data24"></td>
+            <td id="data25"></td>
+        </tr>
+    </table>
+
+    <script>
+        var xhttp = new XMLHttpRequest;
+        xhttp.open("GET", "data.xml", true); 
+        xhttp.send();
+        xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4 && xhttp.status == 200) { 
+            var xmlDoc = xhttp.responseXML;
+
+
+            //document.getElementById("data1").innerHTML = xmlDoc.getElementsByTagName("EmployeeId")[0].childNodes[0].nodeValue;
+            document.getElementById("data2").innerHTML = xmlDoc.getElementsByTagName("Name")[0].childNodes[0].nodeValue;
+            //document.getElementById("data3").innerHTML = xmlDoc.getElementsByTagName("Employee")[0].attributes[0].nodeValue;
+            document.getElementById("data4").innerHTML = xmlDoc.getElementsByTagName("City")[0].childNodes[0].nodeValue +", " +xmlDoc.getElementsByTagName("City")[0].attributes[0].nodeValue 
+            document.getElementById("data5").innerHTML = xmlDoc.getElementsByTagName("Basic_Salary")[0].childNodes[0].nodeValue;
+
+            //document.getElementById("data6").innerHTML = xmlDoc.getElementsByTagName("EmployeeId")[1].childNodes[0].nodeValue;
+            document.getElementById("data7").innerHTML = xmlDoc.getElementsByTagName("Name")[1].childNodes[0].nodeValue;
+            //document.getElementById("data8").innerHTML = xmlDoc.getElementsByTagName("Employee")[1].attributes[0].nodeValue;
+            document.getElementById("data9").innerHTML = xmlDoc.getElementsByTagName("City")[1].childNodes[0].nodeValue +", " +xmlDoc.getElementsByTagName("City")[1].attributes[0].nodeValue 
+            document.getElementById("data10").innerHTML = xmlDoc.getElementsByTagName("Basic_Salary")[1].childNodes[0].nodeValue;
+
+            document.getElementById("data11").innerHTML = xmlDoc.getElementsByTagName("EmployeeId")[2].childNodes[0].nodeValue;
+            document.getElementById("data12").innerHTML = xmlDoc.getElementsByTagName("Name")[2].childNodes[0].nodeValue;
+            document.getElementById("data13").innerHTML = xmlDoc.getElementsByTagName("Employee")[2].attributes[0].nodeValue;
+            document.getElementById("data14").innerHTML = xmlDoc.getElementsByTagName("City")[2].childNodes[0].nodeValue +", " +xmlDoc.getElementsByTagName("City")[2].attributes[0].nodeValue 
+            document.getElementById("data15").innerHTML = xmlDoc.getElementsByTagName("Basic_Salary")[2].childNodes[0].nodeValue;
+
+            document.getElementById("data16").innerHTML = xmlDoc.getElementsByTagName("EmployeeId")[3].childNodes[0].nodeValue;
+            document.getElementById("data17").innerHTML = xmlDoc.getElementsByTagName("Name")[3].childNodes[0].nodeValue;
+            document.getElementById("data18").innerHTML = xmlDoc.getElementsByTagName("Employee")[3].attributes[0].nodeValue;
+            document.getElementById("data19").innerHTML = xmlDoc.getElementsByTagName("City")[3].childNodes[0].nodeValue +", " +xmlDoc.getElementsByTagName("City")[3].attributes[0].nodeValue 
+            document.getElementById("data20").innerHTML = xmlDoc.getElementsByTagName("Basic_Salary")[3].childNodes[0].nodeValue;
+
+            document.getElementById("data21").innerHTML = xmlDoc.getElementsByTagName("EmployeeId")[4].childNodes[0].nodeValue;
+            document.getElementById("data22").innerHTML = xmlDoc.getElementsByTagName("Name")[4].childNodes[0].nodeValue;
+            document.getElementById("data23").innerHTML = xmlDoc.getElementsByTagName("Employee")[4].attributes[0].nodeValue;
+            document.getElementById("data24").innerHTML = xmlDoc.getElementsByTagName("City")[4].childNodes[0].nodeValue +", " +xmlDoc.getElementsByTagName("City")[4].attributes[0].nodeValue 
+            document.getElementById("data25").innerHTML = xmlDoc.getElementsByTagName("Basic_Salary")[4].childNodes[0].nodeValue;
+
+
+            //update element
+            var x = xmlDoc.getElementsByTagName("EmployeeId")[0].childNodes[0];
+            x.nodeValue="06";
+
+            document.getElementById("data1").innerHTML = x.nodeValue;
+
+             //update attribute
+
+            var y = xmlDoc.getElementsByTagName("Employee")[0];
+            var z = y.getAttributeNode("Category")[0];
+
+            z = "Banking";
+
+            document.getElementById("data3").innerHTML = z;
+
+
+            //delete elemnt
+
+            var del = xmlDoc.getElementsByTagName("EmployeeId")[1];
+            var del_new = del.childNodes[0];
+
+            document.getElementById("data6").innerHTML = del.removeChild(del_new);
+
+
+            //delete attribute
+
+            var abc = xmlDoc.getElementsByTagName("Employee")[1];
+            var xyz = abc.getAttributeNode("Category")[1];
+
+
+            document.getElementById("data8").innerHTML = abc.removeAttribute(xyz)
+
+        }
+        };
+    </script>
+    
+</body>
+</html>
+
+--- WATER BILL ---
+
+@RestController
+public class Call {
+
+    @GetMapping("/bill/{units}")
+    public float calculateBill(@PathVariable("units") float units) {
+        float amount = 0;
+
+        if (units <= 50 && units > 0) {
+            amount = units * 10;
+        } else if (units <= 100) {
+            float temp = units - 50;
+            float firstU = 50 * 10;
+            float secondU = temp * 20;
+            amount = firstU + secondU;
+        } else if (units <= 200) {
+            float temp = units - 100;
+            float firstU = 50 * 10;
+            float secondU = 50 * 20;
+            float thirdU = temp * 50;
+            amount = firstU + secondU + thirdU;
+        } else if (units > 200) {
+            float temp = units - 200;
+            float firstU = 50 * 10;
+            float secondU = 50 * 20;
+            float thirdU = 100 * 50;
+            float fourthU = temp * 100;
+            amount = firstU + secondU + thirdU + fourthU;
+        }
+
+        return amount;
+    }
+}
+
+
+--- MARKS ---
+
+public class Grade {
+	public String grade(int x) {
+		
+		if (x>=90 && x<=100) {
+			return "A";
+		}
+		else if(x >= 80 && x<= 89) {
+			return "B";
+		}
+		else if(x >= 70 && x<= 79) {
+			return "C";
+		}
+		else if(x >= 60 && x<= 69) {
+			return "D";
+		}
+		else if(x >= 50 && x<= 59) {
+			return "E";
+		}
+		else if(x<=49 && x>=0) {
+			return "W";
+		}
+		else {
+			return "Enter Valid Number";
+		}
+		
+		
+	}
+
+}
+
+--- CALCULATOR ---
+
+package com.calculator1;
+
+public class Cal {
+	public int addition(int a, int b) {
+		return a+b;
+	}
+	
+	public int sub(int x, int y) {
+		return x-y;
+	}
+	
+	public int div(int a, int b) {
+		return a/b;
+	}
+	
+	public int mul(int a, int b) {
+		return a*b;
+	}
+
+}
